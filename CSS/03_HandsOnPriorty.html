@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <link href="02_styles.css" rel="stylesheet" />
+    <style>
+      p {
+        border: thin solid black;
+        height: 20px;
+        margin: 20px;
+        padding: 10px;
+        color: brown;
+        background-color: lightcyan;
+      }
+
+      .class_para{
+          color: blue;
+      }
+
+      #id_para{
+        color: red;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div>
+      <p id="id_para" class="class_para">
+        Id selector has the highest priority than class and element
+      </p>
+      <p class="class_para">Class Selector has Highest priority over element</p>
+      <p>Element Selector has least priority</p>
+
+      <p style="color: black">
+        Inline CSS has higher priority than other CSS selector has least
+        priority
+      </p>
+      <p>External stylesheet has least priority</p>
+    </div>
+  </body>
+</html>

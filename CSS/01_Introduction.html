@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>Introduction to CSS</title>
+    <style>
+      /* Selector => ID =? #    */
+      #header {
+        color: red;
+      }
+
+      /* Selector => Class -> . */
+      .myDiv {
+        border: medium solid brown;
+        padding: 5px;
+        background-color: lightgray;
+        margin: 5px;
+        color: brown;
+      }
+
+      /* Selector => Element / Tagname */
+
+      p {
+        border: thin solid blue;
+        padding: 5px;
+        margin: 5px;
+      }
+
+      /* Selector => * (Global Selector) */
+      * {
+          font-family: 'Courier New', Courier, monospace;
+          font-weight: bold;
+      }
+
+      h2, h4, p, div {
+          color: lightsalmon;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h2 id="header">Welcome to the world of CSS</h2>
+    <h4>This is the place where magic begins</h4>
+    <div class="myDiv">
+      The priority goes like this...
+      <p>ID > Class > Tagname/Element</p>
+    </div>
+
+    <div class="myDiv">This is my second div</div>
+    <div class="myDiv">This is my third div</div>
+
+    <p>01. I am styled via element selector!</p>
+    <p>02. I am styled via element selector!</p>
+    <span></span>
+  </body>
+</html>

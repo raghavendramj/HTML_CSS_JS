@@ -1,0 +1,115 @@
+<html>
+  <head>
+    <title>Pseudo Class</title>
+    <style>
+      p:first-line {
+        color: red;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+
+      /* unvisited link */
+      a:link {
+        color: black;
+      }
+
+      /* visited */
+      a:visited {
+        color: green;
+      }
+
+      /* Mouse hover */
+      a:hover {
+        color: hotpink;
+      }
+
+      /* Active or Clicked  */
+      a:active {
+        color: blue;
+      }
+
+      input:focus {
+        background-color: lightyellow;
+      }
+
+      input#submit:hover {
+        background-color: linen;
+        cursor: pointer;
+      }
+
+      input#reset:hover {
+        background-color: linen;
+        cursor: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/happy.png");
+      }
+
+      option:checked {
+        background-color: lightgray;
+        color: blue;
+      }
+div:empty{
+    background-color: royalblue;
+    border: medium solid red;
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin: 10px;
+}
+
+    </style>
+  </head>
+  <body>
+    <p>
+      This session is just drifting a touch, not long until the dinner break -
+      after which Australia will soon have access to a new ball. Guess what
+      Steven Smith is thinking about in the meantime... A four-over spell for
+      Neser, which started with a couple of maidens - before Chris Woakes
+      decided positivity was the approach for him, punching a pair of boundaries
+      through the off side. In response, Steven Smith brings Jhye Richardson
+      into the attack for the first time today, with Lyon continuing to operate
+      from the other end.
+    </p>
+    <a href="https://www.google.com" target="_target">Open Google</a>
+
+    <div>
+      <h3>Sample Form</h3>
+
+      <form action="index.html">
+        <table>
+          <tr>
+            <td><label for="firstName">Firstname: </label></td>
+            <td><input type="text" name="firstName" /></td>
+          </tr>
+          <tr>
+            <td><label for="lastName">Lastname: </label></td>
+            <td><input type="text" name="lastName" /></td>
+          </tr>
+          <tr>
+            <td><label for="email">Email: </label></td>
+            <td><input type="email" name="email" /></td>
+          </tr>
+          <tr>
+            <td><label for="country">Choose Country : </label></td>
+            <td>
+              <select name="choose" id="choose">
+                <option value="1">India</option>
+                <option value="2">England</option>
+                <option value="3">Australia</option>
+                <option value="4">South Africa</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td><input id="submit" type="submit" /></td>
+            <td><input id="reset" type="reset" /></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+
+    <h3>Empty Child Demo</h3>
+    <div class="emptyDiv">
+        <p>I am the child of div</p>
+    </div>
+    <div class="emptyDiv"></div>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Pseudo Elements</title>
+    <style>
+        .ribbon{
+            background-color: coral;
+            border-radius: 5px;
+        }
+
+        .ribbon::before{
+            background-color: orange;
+            content: "Look at this organge box ";           
+            border-radius: 5px;
+            padding-right: 10px;
+        }
+
+        p::before{
+            content: "I am before the ";
+            background-color: lightgray;
+        } 
+        
+        p::after{
+            content: " which has some meaning";
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <p>Message</p>
+    <span class="ribbon">Just observe before this coral box</span>
+</body>
+</html>

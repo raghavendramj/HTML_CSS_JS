@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>InlineInternalExternal CSS</title>
+    <style>
+      #myPara {
+        color: blue;
+        background-color: chartreuse;
+      }
+
+      p {
+        border: thin solid blue;
+        padding: 5px;
+        margin: 5px;
+      }
+    </style>
+    <link href="02_styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <p>Priority :- Inline > Internal > External</p>
+
+    <div>
+      <h3>Priority</h3>
+      <p id="myPara" class="para" style="color: red">
+        <span>Inline</span>
+        <span>Internal</span>
+        <span>External</span>
+      </p>
+    </div>
+  </body>
+</html>
