@@ -1,0 +1,93 @@
+<html>
+  <head>
+    <title>HTML Forms</title>
+  </head>
+
+  <body>
+    <h3>User Signup Form</h3>
+    <form action="index.html" method="POST">
+      <table>
+        <tr>
+          <td><label for="username">Username: </label></td>
+          <td>
+            <input type="text" name="username" placeholder="Enter Username" />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="password">Password : </label></td>
+          <td>
+            <input
+              type="password"
+              name="password"
+              placeholder="Enter password"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="email">Email : </label></td>
+          <td>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter email"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="phone">Phone : </label></td>
+          <td>
+            <input type="number" name="phone" placeholder="Enter phone" />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="country">Choose Country : </label></td>
+          <td>
+            <select name="choose" id="choose">
+              <option value="1">India</option>
+              <option value="2">England</option>
+              <option value="3">Australia</option>
+              <option value="4">South Africa</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="gender">Choose Gender : </label></td>
+          <td>
+            <input type="radio" name="gender" />Male
+            <input type="radio" name="gender" />Female
+            <input type="radio" name="gender" />Others
+          </td>
+        </tr>
+        <tr>
+          <td><label for="hoobies">Choose your hobbies : </label></td>
+          <td>
+            <input type="checkbox" name="hoobies" />Reading Books
+            <input type="checkbox" name="hoobies" />Playing Instruments
+            <input type="checkbox" name="hoobies" />Watching Cricket Match
+          </td>
+        </tr>
+        <tr>
+          <td><label for="upload">Upload File</label></td>
+          <td><input type="file" name="upload" id="upload" /></td>
+        </tr>
+        <tr>
+          <td><label for="range">Range</label></td>
+          <td><input type="range" name="range" id="range" /></td>
+        </tr>
+        <tr>
+          <td><label for="dob">Select DOB</label></td>
+          <td><input type="date" name="dob" id="dob" /></td>
+        </tr>
+        <tr>
+          <td><label for="address">Address</label></td>
+          <td><textarea name="address" id="" cols="20" rows="3"></textarea></td>
+        </tr>
+        <tr>
+          <td><input type="submit" /></td>
+          <td><input type="reset" /></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

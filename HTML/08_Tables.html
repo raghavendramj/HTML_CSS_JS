@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>HTML Tables</title>
+    <style>
+        table,
+        th,
+        td {
+          border: 0.5px solid black;
+          padding: 8px;
+        }
+      </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John Doe</td>
+          <td>johh.doe@gmail.com</td>
+          <td rowspan="2">9562356214</td>
+        </tr>
+        <tr>
+          <td>Adam</td>
+          <td>adam@gmail.com</td>
+          <!-- <td>9536587522</td> -->
+        </tr>
+        <tr>
+          <td>Ricky</td>
+          <td>ricky@gmail.com</td>
+          <td>6586563214</td>
+        </tr>
+        <tr>
+          <!-- <td>Ricky</td> -->
+          <td colspan="2">hayden@gmail.com</td>
+          <td>6586563214</td>
+        </tr>
+      </tbody>
+      <tfoot>
+          <tr>
+              <td colspan="2">TFOOT - Sum</td>
+              <td>$180</td>
+          </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>
