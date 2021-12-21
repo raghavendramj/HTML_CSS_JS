@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>CSS Transform - translate()</title>
+    <style>
+      .container {
+        margin-top: 30px;
+        display: flex;
+        border: 2px solid red;
+        height: 80vh;
+      }
+      div[id] {
+        border: medium solid blueviolet;
+        background-color: yellowgreen;
+        width: 150px;
+        height: 100px;
+        padding: 10px;
+        margin: 10px;
+        box-sizing: border-box;
+      }
+
+      #translate {
+        transform: translate(50px, 100px);
+      }
+      #rotatePositive {
+        transform: rotate(20deg);
+      }
+      #rotateNegative {
+        transform: rotate(-20deg);
+      }
+      #scaling{
+        transform: translate(0px, 200px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="translate">translate(50px, 100px)</div>
+      <div id="rotatePositive">rotate(20deg)</div>
+      <div id="rotateNegative">rotate(-20deg)</div>
+
+      <div id="scaling"> I am the div  </div>
+    </div>
+  </body>
+</html>

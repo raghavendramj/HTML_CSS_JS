@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>CSS Gradients</title>
+    <style>
+      div {
+        height: 100px;
+        /* background-color: red; */
+        margin: 10px;
+        text-align: center;
+        color: white;
+        border: 2px solid black;
+      }
+
+      #first{
+          background: linear-gradient(to left, blue, yellow);
+      }
+      #second { 
+        background: linear-gradient(to Right, blue, yellow);
+      }
+      #third { 
+        background: linear-gradient(to bottom Right, blue, yellow);
+      }
+      #fourth { 
+        background: linear-gradient(90deg, blue, yellow);
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div id="first">Gradient Backgrounds - From right to left</div>
+    <div id="second">Gradient Backgrounds - left to right</div>
+    <div id="third">Gradient Backgrounds - top left to bottom Right</div>
+    <div id="fourth">Gradient Backgrounds - Angle</div>
+  </body>
+</html>

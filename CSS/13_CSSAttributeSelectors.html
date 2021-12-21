@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>CSS Attribute selectors</title>
+    <style>
+      a[target] {
+        background-color: lightblue;
+      }
+      a[target="_self"] {
+        background-color: yellow;
+      }
+
+
+      [title~="oranges"]{
+          border: 5px solid brown;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div>
+      <p>
+        <a href="https://www.simplilearn.net" target="_blank">Simplilearn</a>
+      </p>
+      <p><a href="index.html" target="_self"> Index</a></p>
+      <p><a href="login.html" target="_blank">Login</a></p>
+    </div>
+
+    <img src="images/oranges.jfif" title="oranges" alt="">
+    <img src="images/mackBook.jfif" title="oranges MacBook" alt="" width="250" height="150">
+
+
+  </body>
+</html>
