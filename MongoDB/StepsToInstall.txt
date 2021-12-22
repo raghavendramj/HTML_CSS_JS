@@ -1,0 +1,45 @@
+https://www.mongodb.com/try/download/community
+
+Click on 
+    On-Premises 
+    MongoDB Locally
+
+    Available Downloads
+        Version: 5.0.5(current)
+        Platform: Windows
+        package : msi
+    Click -> Download
+
+    Installation
+        ->Setup type:- Complete
+
+Setting the environment variable:
+    PATH = %PATH%;C:\Program Files\MongoDB\Server\5.0\bin;
+
+Open CMD Prompt 1 :- mongoD
+    -> ERROR:- C:\\data\\db Not found
+
+    To fix this error:
+        Create a folder in C:\data\db
+
+And then run again this command :- mongoD
+
+Open CMD Prompt 2 :- mongo  
+Verify that mongo DB is up and running.
+    Verifcation command :- show dbs;
+                        admin     0.000GB
+                        config    0.000GB
+                        local     0.000GB 
+
+Example of Hierarchical data:
+{
+    s: {
+        b : {
+            c:{
+                d:{
+                    
+                }
+            }
+        }
+    }
+}

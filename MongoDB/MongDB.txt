@@ -1,0 +1,71 @@
+MongoDB -> Databases -> Collections -> Documents -> Fields -> Indexes, References
+
+
+Strong 
+    -> every data => pushed on to other nodes, immediately as we receive the data. 
+    -> Macine goes down
+    -> Any machine, you have consistent data with us.
+
+Delayed / Eventual Consitency
+    -> A machine fails
+        -> When its up, all other replicas will be synced in.
+
+
+Vertical Sharding
+    Shard-01 -> name, department, id, 
+    Shard-02 -> email, phone, address, gender
+
+Horizantal Sharding
+    name, department, id, email, phone, address, gender
+        Shard-01 ->
+            data1
+            data2
+            data3
+
+        Shard-02 ->
+            data4
+            data5
+            data6
+
+Load Balancer (LB)
+=> Smart Algo to choose to send what request to what system
+    Replication
+        Replication Factor = 5
+            System1 -> Node -> MongoDB -> Same Data -> Primary -> Read + Write Operations
+                -> If goes down
+                -> Choose one amoung Secondary to make its Primary => Read + Write
+
+            System2 -> Node -> MongoDB -> Same Data -> Secondary -> Read Heavy
+            System3 -> Node -> MongoDB -> Same Data -> Secondary -> Read Heavy
+            System4 -> Node -> MongoDB -> Same Data -> Secondary -> Read Heavy
+            System5 -> Node -> MongoDB -> Same Data -> Secondary -> Safe Backup
+
+
+
+department : {
+
+    "id" :_asdsanu2132wd9j21,
+    "name" : "Technology",
+    "people" : [
+                person : 
+                {
+                    firstName: "John",
+                    lastName: "Doe",
+                    age: 27,
+                    getFullName: function () {
+                    return this.firstName + " " + this.lastName;
+                    },
+                    address: {
+                    building: "Villa Apartments",
+                    road: "Rue La Roi",
+                    city: "Paris",
+                    },
+                    hobbies: ['Playing Cicket', 'Watching cricket', 'Playing Intsurment']
+                },
+                ...
+    ] 
+
+}
+
+To Validate the JSON's : https://jsonlint.com/
+For Sample JSONs for ajax calls : https://jsonplaceholder.typicode.com/todos/

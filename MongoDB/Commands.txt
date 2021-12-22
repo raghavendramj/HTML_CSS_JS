@@ -1,0 +1,141 @@
+MongoDB -> Databases -> Collections -> Documents -> Fields -> Indexes, References
+
+
+
+Show Databases:
+	show dbs;
+
+Create Database and use:
+    use <DATABASE_NAME>
+	use cisco
+
+Drop Database
+    use cisco
+    db.dropDatabase()
+
+Create collection
+    1st Way:-
+        db.createCollection("employee")
+    2nd Way :- 
+        db.department.insert({name:"Technology", code:"TECH", city: "Bangalore"})
+
+Show Collections
+    show collections
+
+Drop Collection
+    db.createCollection("student")
+    show collections
+    db.student.drop()
+
+Bulk Insert:
+     db.createCollection("students");
+     var bulk = db.students.initializeUnorderedBulkOp();
+     bulk.insert({ first_name: "Sachin", last_name: "Tendulkar" });
+     bulk.insert( { first_name: "Virender", last_name: "Sehwag" } );
+     bulk.insert( { first_name: "Shikhar", last_name: "Dhawan" } );
+     bulk.insert( { first_name: "Mohammed", last_name: "Shami" } );
+     bulk.insert( { first_name: "Shreyas", last_name: "Iyer" } );
+     bulk.execute();
+     
+     var bulk = db.employee.initializeOrderedBulkOp();
+     bulk.insert({ name: "Sachin Tendulkar", "age":42, "city": "Mumbai", "department":"Marketing" });
+     bulk.insert({ name: "Virender Sehwag", "age":38, "city": "Delhi", "department":"HR" });
+     bulk.insert({ name: "Mohammed Shami", "age":34, "city": "Chennai", "department":"Technology" });
+     bulk.insert({ name: "Shreyas Iyer", "age":24, "city": "Delhi", "department":"Marketing" });
+     bulk.execute();
+
+Insert into collection
+    Insert
+         db.employee.insert({ "name": "Adam", "age":42, "city": "Bangalore", "department":"Marketing" });
+    InsertOne
+        db.employee.insertOne({ "name": "Virat", "age":32, "city": "Dehi", "department":"Technology" });
+    InsertMany
+        db.employee.insertMany([
+            { "name": "Manish", "age":27, "city": "Bangalore", "department":"Marketing" },
+            { "name": "Mayank", "age":27, "city": "Bangalore", "department":"HR" }
+        ]);       
+    Bulk Insert
+        db.employee.insert([ 
+            { "name": "Rishabh", "age":24, "city": "Mumbai", "department":"Technology" },
+            { "name": "Dhoni", "age":38, "city": "Ranchi", "department":"Marketing" },
+            { "name": "Ricky", "age":46, "city": "Chennai", "department":"HR" }
+        ]); 
+            
+    Query the document:
+        Find All Available
+            db.employee.find()
+        Find All Available and formatted
+            db.employee.find().pretty()
+        Find one formatted document  
+            db.employee.findOne()
+        Find along with Sorting
+            Desceding
+                db.employee.find().sort({'age':-1});
+            Asceding
+                db.employee.find().sort({'age':1});
+        Find documents with limit   
+            db.employee.find().sort({'name':1}).limit(5).pretty()
+
+        Find with where clauses:
+            Equality : 
+                db.employee.find({"name":"Adam"}).pretty()
+            Less than : 
+                db.employee.find({"age":{$lt:40}}).pretty()
+            Less Than Equals:
+                db.employee.find({"age":{$lte:42}}).pretty()
+            Greater Than
+                db.employee.find({"age":{$gt:35}}).pretty()
+            Greater Than Equals
+                db.employee.find({"age":{$gte:25}}).pretty()
+            Not Equals
+                db.employee.find({"department":{$ne:"Marketing"}}).pretty()
+            Values in an array
+                db.employee.find({"name":{$in:["Adam", "Virat", "Rishabh"]}}).pretty()
+            Values not in an array
+                db.employee.find({"name":{$nin:["Adam", "Virat", "Rishabh"]}}).pretty()
+        And 
+             db.employee.find({$and:[{"name":"Virat"},{"age": 32}]}).pretty()
+
+        OR 
+             db.employee.find({$or:[{"name":"Virat"},{"age": 27}]}).pretty()
+
+        And and OR
+            db.employee.find({"age": {$gt:25}, $or: [{"city": "Bangalore"}, {"department": "Marketing"}]}).pretty() 
+        
+        Regular Expression:
+                db.employee.find({name:{$regex:"ra"}}).pretty()
+                db.employee.find({name:/ra/})
+            Case Insensitive
+                db.employee.find({name:{$regex:"ra",$options:"$i"}})
+                db.employee.find({name:/ra/i})
+
+
+        db.student.drop()
+        db.createCollection('students')
+        db.students.insertOne({name:"virat", hobbies: ['Yoga', 'Writing', 'Kinitting', 'Hiking'], age:'26'});
+        
+        db.students.insert([
+            {name:"Rahul", hobbies: ['Gardening', 'Photography', 'Drawing', 'Hiking'], age:'28'},
+            {name:"Shreyas", hobbies: ['Dance', 'Sewing', 'Drawing', 'Paiting'], age:'24'},
+            {name:"Prithwi", hobbies: ['Exercise', 'Chess', 'Birdwatching', 'Paiting'], age:'26'},
+            {name:"Ishant", hobbies: ['Origami', 'Drawing', 'Gardening', 'Paiting'], age:'22'}
+        ]);
+        
+        Array Elements
+            db.students.find({hobbies:{$regex:"Drawing"}})
+
+        Array Element Matches
+            db.employee.find( { "hobbies": { $elemMatch: { "age" : "25","department" : "HR"}}}).pretty();
+
+        where   
+            db.employee.find({$where : "this.age > 30"});
+    
+        Update
+            db.employee.find({"name":"Adam"});
+            db.employee.update({"name":"Adam"},{$set:{"name":"Adam Gilchrist"}})
+            db.employee.find({"name":/Adam/});
+
+            db.employee.find({"name":"Virat"});
+            db.employee.update({"name":"Virat"}, {$set:{"city":"Delhi"}});
+                
+

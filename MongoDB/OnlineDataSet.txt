@@ -1,0 +1,77 @@
+db.createCollection("agegroup");
+db.agegroup.insert([{       
+        "item_code" : "I001",
+        "category" : [
+                "boy",
+                "girl"
+        ],
+        "description" : [
+                {
+                        "agegroup" : "3-5",
+                        "flavour" : "chocolate",
+                        "price" : 5
+                },
+                {
+                        "agegroup" : "6-9",
+                        "flavour" : "strawberry",
+                        "price" : 6
+                },
+                {
+                        "agegroup" : "10-13",
+                        "flavour" : "mango",
+                        "price" : 7
+                }
+        ]
+},
+{        
+        "item_code" : "I002",
+        "category" : [
+                "boy",
+                "girl"
+        ],
+        "description" : [
+                {
+                        "agegroup" : "3-5",
+                        "flavour" : "vanilla",
+                        "price" : 3
+                },
+                {
+                        "agegroup" : "6-9",
+                        "flavour" : "lemon",
+                        "price" : 6
+                },
+                {
+                        "agegroup" : "10-13",
+                        "flavour" : "mango",
+                        "price" : 5
+                }
+        ]
+},
+{       
+        "item_code" : "I003",
+        "category" : [
+                "boy",
+                "girl"
+        ],
+        "description" : [
+                {
+                        "agegroup" : "3-5",
+                        "flavour" : "pineapple",
+                        "price" : 5
+                },
+                {
+                        "agegroup" : "6-9",
+                        "flavour" : "mango",
+                        "price" : 6
+                },
+                {
+                        "agegroup" : "10-13",
+                        "flavour" : "vanilla",
+                        "price" : 5
+                }
+        ]
+}]);
+
+
+db.agegroup.find({"description": {$elemMatch: {"agegroup": "3-5", "price": 3}}})
+db.agegroup.find({"description": {$elemMatch: {"agegroup": "3-5", "flavour" : "chocolate"}}})

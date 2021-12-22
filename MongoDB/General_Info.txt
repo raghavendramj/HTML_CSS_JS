@@ -1,0 +1,2 @@
+To Validate the JSON's : https://jsonlint.com/
+For Sample JSONs for ajax calls : https://jsonplaceholder.typicode.com/todos/
