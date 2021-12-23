@@ -1,0 +1,94 @@
+HTML
+    Elements
+        Block Level
+        Inline
+        Lists
+            Orderded
+            Un-Orderded
+            Description
+        Dropdowns
+        Forms
+        Tables
+        Semantic HTML Elements
+
+CSS
+    Priority
+        Element Selector -> ID > CLASS > Element
+        CSS Placing -> Inline > Internal > External
+        Pseudo CLASS
+        Pseudo Elements
+        Units of CSS    
+            Pixels
+            EM and REM
+        Colors
+            color
+            hexadecimal
+            RGB
+            RGBA
+            HSL
+            HSLA
+        Backgrounds
+        CSS Box Model
+        Borders
+        CSS Attribute Selector
+        Text Shadow
+        Text Alignment
+        Text Decoration
+        Text and Letter Spacing
+        CSS Fonts
+        CSS Gradients
+        CSS Transforms
+            translate
+            scale
+            skew
+JavaScript
+    Basics
+        Value and Reference types
+        Pass by value and pass by Reference
+        String Methods
+        Array Methods
+        Objects and its creation
+        IIFE
+        Closure
+        Call, Apply and Bind
+        Async fucntions -> setTimeOut
+    ES6
+        Let, Const
+        Arrays Destructuring
+        Object Destructuring
+        Arrow functions
+            Map
+            Filter
+            Sort
+            Reduce
+            ReduceOne            
+        This -> Using Arrow functions
+        Callback
+        Callback Hell
+        Promise
+        Ajax
+        Ajax + Promise
+        Maps
+        CLASS
+Mongo
+    Basics aspects of Mongo
+    How to setup Mongo
+        mongoD
+        Mongo
+    Database commands
+        Database
+        collection
+            create
+            update
+            read
+            delete
+            aggregate
+            mapReduce
+        Documents
+        Fileds
+
+    Java + Mongo => CRUD -> Core Java + Spring Boot
+
+Tools Used:
+    For JS -> VS Code
+    For Java -> IntelliJ(IDEA) / Eclipse
