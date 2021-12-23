@@ -1,0 +1,13 @@
+    Mapping Function -> 
+        var mapFunction3 = function() {
+            emit(this.cust_id, this.amount, this.status);
+        };
+    Reduce Function -> 
+        var reduceFunction = function(key, values){
+            return {Array.sum(values)};
+        };
+
+var reduceFunction3 = function(key, values) {return Array.sum(values)}
+db.orders.mapReduce(mapFunction, reduceFunction2, {query: {status: "Ongoing" }, out: "OnGoingMapReduce"})
+
+ db.OnGoingMapReduce.find();

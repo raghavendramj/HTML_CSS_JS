@@ -1,0 +1,74 @@
+Create collection
+    db.createCollection('orders')
+
+Insert the data into the collection
+    db.orders.insert({
+        cust_id: 'A123',
+        amount : 500,
+        status: 'Pending'
+    });
+
+    db.orders.insert([{
+        cust_id: 'A123',
+        amount : 750,
+        status: 'Pending'
+    },
+    {
+        cust_id: 'A123',
+        amount : 560,
+        status: 'Delivered'
+    },
+    {
+        cust_id: 'B212',
+        amount : 100,
+        status: 'Ongoing'
+    },
+    {
+        cust_id: 'B212',
+        amount : 450,
+        status: 'Pending'
+    },
+    {
+        cust_id: 'B212',
+        amount : 485,
+        status: 'Pending'
+    },
+    {
+        cust_id: 'C312',
+        amount : 485,
+        status: 'Pending'
+    },
+    {
+        cust_id: 'C312',
+        amount : 250,
+        status: 'Pending'
+    }]);
+
+Verify the data:
+    db.orders.find()
+
+Create Map-Reduce functions
+    collection_name.mapReduce (function (Map function), function (Reduce function)) 
+
+    Mapping Function -> 
+        var mapFunction = function() {
+            emit(this.cust_id, this.amount);
+        };
+    Reduce Function -> 
+        var reduceFunction = function(key, values){
+            return {Array.sum(values)};
+        };
+
+        var reduceFunction2 = function(key, values) {return Array.sum(values)}
+
+    Command to save the function to the datbase :-
+        db.orders.mapReduce(mapFunction, reduceFunction, {query: {status: "Pending" }, out: "SampleMapReduce"})
+        db.orders.mapReduce(mapFunction, reduceFunction, {query: {status: "Delivered" }, out: "DeliveredMapReduce"})
+        db.orders.mapReduce(mapFunction, reduceFunction2, {query: {status: "Ongoing" }, out: "OnGoingMapReduce"})
+    
+    Find Command
+        db.SampleMapReduce.find();
+        db.OnGoingMapReduce.find();
+    
+    Find + Sort Command
+        db.SampleMapReduce.find().sort({value: 1});
