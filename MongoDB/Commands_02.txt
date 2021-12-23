@@ -1,0 +1,72 @@
+var mycursor = db.employee.find({department : "Marketing"})
+while(mycursor.hasNext()){
+    print(tojson(mycursor.next()));
+}
+
+var mycursor = db.employee.find({department : "Marketing"})
+mycursor.forEach(printjson)
+
+var mycursor = db.employee.find({department : "Marketing"})
+mycursor.toArray()
+
+var mycursor = db.employee.find({department : "Marketing"})
+var docs = mycursor.toArray()
+var resultdoc = docs[0]
+resultdoc
+
+For more info:- https://docs.mongodb.com/manual/reference/method/js-cursor/
+
+
+Methods of cursor
+    db.employee.find({department : "Marketing"}).count();
+    db.employee.find().toArray()
+    db.employee.find().next()
+
+Pagination:
+    // Page 1
+    db.employee.find().limit(5)
+
+    // Page 2
+    db.employee.find().skip(5).limit(5)
+
+    // Page 3
+    db.employee.find().skip(10).limit(5)
+
+
+db.employee.find({name:'Marketing'} )
+
+Update Commands
+
+$inc
+    db.employee.find({"name" : "Shreyas Iyer"});
+    db.employee.update({"name" : "Shreyas Iyer"}, {"$inc":{"age" : 1}}) 
+    db.employee.update({"name" : "Shreyas Iyer"}, {"$inc":{"age" : 1}}) 
+
+    db.employee.find({"name" : "Shreyas Iyer"});
+    db.employee.update({"name" : "Shreyas Iyer"}, {"$unset":{"age" : 24}})
+
+$push
+    db.employee.find({"name" : "Shreyas Iyer"});
+    db.employee.update({"name" : "Shreyas Iyer"}, {$push:{"title":"Mr.Captian"}}) 
+    db.employee.update({"name" : "Shreyas Iyer"}, {$push:{"title":"Opening Batsmen"}}) 
+    db.employee.update({"name" : "Shreyas Iyer"}, {$push:{"title":"Indian Cricketer"}})
+    db.employee.update({"name" : "Shreyas Iyer"}, {$push:{"title":"From Delhi Team"}})
+
+$addToSet
+    db.employee.update({"name" : "Shreyas Iyer"}, {$addToSet:{"title":"Six Hitter"}}) 
+$pop - Remove from end
+    db.employee.update({"name" : "Shreyas Iyer"}, {$pop:{"title": 1}})
+$pop - Remove from beginning
+    db.employee.update({"name" : "Shreyas Iyer"}, {$pop:{"title": -1}})
+
+upsert is a special update - no document that meets the criteria, a new document is created
+   db.employee.update({name : "Zaheer Khan", age : 43, department: 'Technology'}, {$push:{"title":"Opening Bowler"}}, {upsert: true})
+
+Remove
+    Collection
+        db.employee.remove()
+    Document
+        db.employee.remove({"name":"Zaheer Khan"})
+    Drop all documents;
+        db.employee.drop()
+

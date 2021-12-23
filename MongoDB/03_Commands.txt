@@ -1,0 +1,31 @@
+Indexes:
+    Create index
+        db.employee.createIndex({name:"text"});
+    View Index
+        db.employee.getIndexes();
+    Drop index
+        db.employee.dropIndex("name_text")
+    Search
+        db.employee.find({$text:$search:"Adam"}})
+
+    Create Compound Index:
+         db.employee.createIndex({name:"text", department:"text"});
+    Search
+         db.employee.find({$text: {$search:"HR"}})
+
+    Embedded Document Case :- 
+        {name:'Virat', address : {city:'bangalore', 'state': 'karanataka', pincode:560001}, age:32} 
+         db.employee.createIndex({address.name:"text"});
+
+
+    db.employee.ensureIndex({"name": 1}, {unique: true})
+    db.employee.ensureIndex({"name": 1}, {sparse: true})
+
+
+    db.employee.find({name:"Virat"})explain();
+
+    db.getCollectionNames().forEach(eachCollection =>{
+        indexes = db[eachCollection].getIndexes();
+        print("Indexes of "+eachCollection+ " are ....****************")
+        printjson(indexes);
+    });

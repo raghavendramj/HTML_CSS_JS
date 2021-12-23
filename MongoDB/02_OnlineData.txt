@@ -1,0 +1,104 @@
+db.nosqls.insert([{ 
+   title: 'MongoDB Overview', 
+   description: 'MongoDB is no sql database',
+   by_user: 'simplilearn',
+   url: 'http://www.simplilearn.net',
+   tags: ['mongodb', 'database', 'NoSQL'],
+   likes: 100
+}, {  
+   title: 'NoSQL Overview', 
+   description: 'No sql database is very fast',
+   by_user: 'simplilearn',
+   url: 'http://www.simplilearn.net',
+   tags: ['mongodb', 'database', 'NoSQL'],
+   likes: 10
+},
+{
+   title: 'Neo4j Overview', 
+   description: 'Neo4j is no sql database',
+   by_user: 'Neo4j',
+   url: 'http://www.neo4j.net',
+   tags: ['neo4j', 'database', 'NoSQL'],
+   likes: 750
+}]); 
+
+
+Agrregate Commands :-
+    Sum
+        db.nosqls.aggregate([{$group : {_id : "$by_user",  total : {$sum : 1}}}])
+    Average:
+       db.nosqls.aggregate([{$group : {_id : "$by_user", total : {$avg : "$likes"}}}])
+    Minimum
+        db.nosqls.aggregate([{$group : {_id : "$by_user", total : {$min : "$likes"}}}])
+    Maximum:
+        db.nosqls.aggregate([{$group : {_id : "$by_user", total : {$max : "$likes"}}}])
+    Push
+        db.nosqls.aggregate([{$group : {_id : "$by_user", url : {$push: "$url"}}}])
+    db.nosqls.aggregate([{$group : {_id : "$by_user", url : {$addToSet : "$url"}}}])
+    db.nosqls.aggregate([{$group : {_id : "$by_user", first_url : {$first : "$url"}}}])
+    db.nosqls.aggregate([{$group : {_id : "$by_user", last_url : {$last : "$url"}}}])
+
+
+ 
+db.posts.drop();
+db.createCollection("posts");
+
+db.posts.insert([
+{
+   "title" : "my first post",
+   "author" : "Jim",
+   "likes" : 5,
+   "tags" : ["angular", "react", "javascript"]
+},
+{
+   "title" : "my second post",
+   "author" : "Jim",
+   "likes" : 2,
+   "tags" : ["javascript", "react", "vue"]
+},
+{
+   "title" : "hello world",
+   "author" : "Joe",
+   "likes" : 3,
+   "tags" : ["vue", "react"]
+},
+{
+   "title" : "Joe post",
+   "author" : "Joe",
+   "likes" : 5,
+   "tags" : ["javascript", "react", "vue", "backbone"]
+},
+{
+   "title" : "Third Hello post",
+   "author" : "Joe",
+   "likes" : 20,
+   "tags" : [ "vue", "backbone"]
+}]);
+
+db.posts.aggregate([
+    {$group: {_id: "$author", total_likes: { $sum: "$likes"}}}
+])
+
+db.posts.aggregate([
+   {$match: { author: "Joe"}},
+   {$group: {_id: "$author", total_likes: { $sum: "$likes"}}}
+])
+
+
+db.posts.aggregate([
+    { $group: { _id:"$author", titles: { $push:"$title"}} }
+])
+Match:
+    db.posts.aggregate([
+        { $match: { author:"Jim"} }
+    ])
+
+Project
+    db.posts.aggregate([
+        { $project: { author:1, abbrev:{ $substr: [ "$title", 0, 3 ] } } }
+    ])
+
+Sum
+    db.posts.aggregate([
+    { $group: { _id: "$author", total_likes: { $sum: "$likes" } } }
+    ])
